@@ -1,38 +1,376 @@
-.App {
+/* Global Reset & Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Navbar */
+.navbar {
+  background: #4498f2;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo a {
+  color: black;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-links {
+  display: flex; 
+  gap: 2rem; 
+  list-style-type: none;
+}
+
+.navbar-links li {
+  display: inline-block; 
+}
+
+.navbar-links li a {
+  color: white;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+  color: #ffeb3b; /* Hover effect color */
+}
+
+/* Separate Theme Switcher */
+.theme-switcher-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 2rem;
+  margin-top: 1rem;
+}
+
+.theme-switcher-btn {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-switcher-btn:hover {
+  background-color: #e75d53; /* Darker hover effect */
+}
+
+/* Main Content */
+.main-content {
+  padding: 2rem;
+}
+
+.page-title {
   text-align: center;
+  font-size: 2.5rem;
+  color: #007bff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Footer */
+.footer {
+  background: #222;
+  color: #ccc;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .theme-switcher-container {
+    text-align: right;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Course cards*/
+/* Global page styles */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  color: #1a202c;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #4a5568;
+  margin-bottom: 2.5rem;
+}
+
+/* Grid layout for courses */
+.courses-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 0 2rem 3rem;
+}
+
+/* Card styling */
+.card {
+  background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+/* Enroll button styling */
+.card .btn {
+  background-color: #3182ce;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+  background-color: #2b6cb0;
+}
+
+/* Instructors page styles */
+.instructors-page {
+  padding: 2rem;
+}
+
+.instructors-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 2rem;
+}
+
+.instructor-card {
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.instructor-card:hover {
+  transform: translateY(-5px);
+}
+
+.instructor-card h3 {
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.instructor-card .title {
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.instructor-card .bio {
+  color: #718096;
+  margin-bottom: 0.5rem;
+}
+
+.instructor-card .specialty {
+  font-size: 0.95rem;
+  color: #2b6cb0;
+}
+
+/* Contact Page Styles */
+.contact-page {
+  padding: 2rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #cbd5e0;
+  background-color: #ffffff;
+  font-size: 1rem;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.contact-form .btn {
+  background-color: #2b6cb0;
   color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.contact-form .btn:hover {
+  background-color: #2c5282;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-details {
+  flex: 1;
+  min-width: 250px;
+  background-color: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-details h2 {
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.contact-details p {
+  margin-bottom: 0.75rem;
+  color: #4a5568;
+}
+
+/* FAQ Page Styles */
+.faqs-page {
+  padding: 2rem;
+}
+
+.faq-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.faq-item.active {
+  background-color: #f7fafc;
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2b6cb0;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 0;
+}
+
+.faq-answer {
+  margin-top: 0.75rem;
+  color: #4a5568;
+}
+
+/* Light Theme (default) */
+body {
+  background-color: #f4f4f4;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: #ffffff;
+  color: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #1a202c;
+  color: #ffffff;
+}
+
+body.dark .card {
+  background-color: #000000;
+  color: #222020;
+}
+
+body.dark .page-title,
+body.dark .page-subtitle,
+body.dark h1, 
+body.dark label
+ {
+  color: #ffffff;
 }
