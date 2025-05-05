@@ -1,5 +1,7 @@
+// Import the React library to enable JSX and component creation
 import React from 'react';
 
+// Define the Footer functional component
 const Footer = () => {
   return (
     <footer className="footer">
@@ -10,4 +12,5 @@ const Footer = () => {
   );
 };
 
+// Export the Footer component so it can be used in other parts of the app
 export default Footer;

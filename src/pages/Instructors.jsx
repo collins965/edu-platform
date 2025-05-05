@@ -1,6 +1,9 @@
+// Import React to build the functional component
 import React from 'react';
 
+// Define the Instructors component
 const Instructors = () => {
+  // Array of instructor objects containing their details
   const instructors = [
     {
       name: 'Jane Mwende',
@@ -35,17 +38,26 @@ const Instructors = () => {
   ];
 
   return (
+    // Main container for the Instructors page
     <div className="instructors-page">
+      
+      {/* Page title and subtitle */}
       <h1 className="page-title">Meet Our Instructors</h1>
-      <p className="page-subtitle">Learn from industry leaders who are passionate about teaching and transforming careers.</p>
+      <p className="page-subtitle">
+        Learn from industry leaders who are passionate about teaching and transforming careers.
+      </p>
 
+      {/* Grid layout to display instructor cards */}
       <div className="instructors-grid">
         {instructors.map((instructor, index) => (
+          // Individual instructor card
           <div className="instructor-card" key={index}>
-            <h4>{instructor.name}</h4>
-            <p className="title">{instructor.title}</p>
-            <p className="bio">{instructor.bio}</p>
-            <p className="specialty"><strong>Specialty:</strong> {instructor.specialty}</p>
+            <h4>{instructor.name}</h4> {/* Instructor name */}
+            <p className="title">{instructor.title}</p> {/* Professional title */}
+            <p className="bio">{instructor.bio}</p> {/* Short biography */}
+            <p className="specialty">
+              <strong>Specialty:</strong> {instructor.specialty} {/* Area of expertise */}
+            </p>
           </div>
         ))}
       </div>
@@ -53,4 +65,5 @@ const Instructors = () => {
   );
 };
 
+// Export the component for use in the app
 export default Instructors;

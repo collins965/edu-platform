@@ -1,6 +1,9 @@
+// Import React to create the functional component
 import React from 'react';
 
+// Define the Courses functional component
 const Courses = () => {
+  // List of course objects containing details for each course
   const courseList = [
     {
       title: 'Web Development Bootcamp',
@@ -35,17 +38,26 @@ const Courses = () => {
   ];
 
   return (
+    // Main container for the Courses page
     <div className="courses-page">
+      {/* Page title */}
       <h1 className="page-title">Our Courses</h1>
-      <p className="page-subtitle">Explore our wide range of curated programs to elevate your skills and career.</p>
 
+      {/* Brief subtitle introducing the course offerings */}
+      <p className="page-subtitle">
+        Explore our wide range of curated programs to elevate your skills and career.
+      </p>
+
+      {/* Grid container for rendering course cards */}
       <div className="courses-grid">
+        {/* Loop through each course in courseList and render a styled card */}
         {courseList.map((course, index) => (
           <div className="card" key={index}>
             <h3>{course.title}</h3>
             <p>{course.description}</p>
             <p><strong>Duration:</strong> {course.duration}</p>
             <p><strong>Level:</strong> {course.level}</p>
+            {/* Call-to-action button for course enrollment */}
             <button className="btn">Enroll Now</button>
           </div>
         ))}
@@ -54,4 +66,5 @@ const Courses = () => {
   );
 };
 
+// Export the Courses component to be used in routing or other pages
 export default Courses;

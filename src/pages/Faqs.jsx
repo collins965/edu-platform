@@ -1,5 +1,7 @@
+// Import React and useState hook for managing component state
 import React, { useState } from 'react';
 
+// Array of FAQ objects, each containing a question and its corresponding answer
 const faqsData = [
   {
     question: "What is EduPlatform?",
@@ -23,24 +25,37 @@ const faqsData = [
   }
 ];
 
+// Define the Faqs component
 const Faqs = () => {
+  // State to keep track of which FAQ item is currently expanded
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // Function to toggle the visibility of a selected FAQ answer
   const toggleFAQ = (index) => {
+    // Collapse if already open, otherwise open the selected one
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
+    // Main container for the FAQ page
     <div className="faqs-page">
+      {/* Title and subtitle of the page */}
       <h1 className="page-title">Frequently Asked Questions</h1>
       <p className="page-subtitle">Find answers to the most common questions here.</p>
 
+      {/* Loop through FAQ data and render each question-answer pair */}
       <div className="faq-list">
         {faqsData.map((faq, index) => (
-          <div className={`faq-item ${activeIndex === index ? 'active' : ''}`} key={index}>
+          <div
+            className={`faq-item ${activeIndex === index ? 'active' : ''}`}
+            key={index}
+          >
+            {/* Clickable question button to toggle answer visibility */}
             <button className="faq-question" onClick={() => toggleFAQ(index)}>
               {faq.question}
             </button>
+
+            {/* Conditionally render the answer if this question is active */}
             {activeIndex === index && (
               <div className="faq-answer">
                 <p>{faq.answer}</p>
@@ -53,4 +68,5 @@ const Faqs = () => {
   );
 };
 
+// Export the Faqs component for use in the application
 export default Faqs;
